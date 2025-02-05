@@ -10,7 +10,7 @@ def public_api(request):
     if request.method == "GET":
         response_data = {
             "email": EMAIL,
-            "current_datetime": now().isoformat(),
+            "current_datetime": now().isoformat(timespec="seconds").replace("+00:00","Z"),
             "github_url": GITHUB_URL
         }
         return JsonResponse(response_data, status=200)
